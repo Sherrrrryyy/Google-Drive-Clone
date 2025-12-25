@@ -24,7 +24,7 @@ router.post(
         .status(400)
         .json({ errors: error.array(), message: "Invalid data" });
     }
-    res.send(error);
+    res.send(req.body);
   }
 );
 
