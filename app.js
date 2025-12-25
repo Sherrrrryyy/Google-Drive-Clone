@@ -1,0 +1,11 @@
+const express = require("express");
+const userRouter = require("./routes/user.router.js");
+const app = express();
+app.set("view engine", "ejs");
+
+
+app.use('/user', userRouter);
+
+app.listen(4000, () => {
+  console.log("server is running on port 4000");
+});
