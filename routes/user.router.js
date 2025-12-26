@@ -1,4 +1,5 @@
 const express = require("express");
+const userModel = require("../model/userModel");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 
@@ -24,7 +25,16 @@ router.post(
         .status(400)
         .json({ errors: error.array(), message: "Invalid data" });
     }
-    res.send(req.body);
+
+    const { name, email, password } = req.body;
+
+    const newUser = userModel.create({
+      name: name,
+      email: email,
+      password: password,
+    });
+
+    res.send(newUser);
   }
 );
 
