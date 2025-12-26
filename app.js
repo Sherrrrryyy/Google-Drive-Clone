@@ -13,6 +13,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.use('/user', userRouter);
 
+
 app.listen(4000, () => {
   console.log("server is running on port 4000");
 });
