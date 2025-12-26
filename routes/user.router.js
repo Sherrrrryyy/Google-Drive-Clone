@@ -63,7 +63,7 @@ router.post(
     if (!error.isEmpty()) {
       return res.status(400).json({
         errors: error.array(),
-        message: "Email or Password is incorrect",
+        message: "Invalid data",
       });
     }
 
@@ -93,7 +93,10 @@ router.post(
       },
       process.env.JWT_SECRET_KEY
     );
-    res.json({ token });
+    
+    res.cookie("token", token);
+
+    res.send("Login Successful");
   }
 );
 

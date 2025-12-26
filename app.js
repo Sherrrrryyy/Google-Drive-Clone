@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const userRouter = require("./routes/user.router.js");
 const dotenv = require('dotenv')
 dotenv.config();
@@ -7,6 +8,7 @@ connectToDB();
 
 const app = express();
 app.set("view engine", "ejs");
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
